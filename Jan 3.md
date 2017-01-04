@@ -1,11 +1,6 @@
 
 __Jan 3rd__
 
-```
-nanaeem@uwaterloo.ca DC 3111
-Office hours: F: 10:30 - 12:00
-```
-
 - Admin Misc
 - Linux Shell
 
@@ -13,7 +8,7 @@ _______________________________________
 
 # Module 1 Linux  Shell
 
-Shell: interface to the Operating System
+__Shell__: interface to the Operating System
 
 - open programs
 
