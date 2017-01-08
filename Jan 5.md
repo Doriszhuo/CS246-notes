@@ -136,7 +136,7 @@ cat words*.txt | sort | uniq > file
 __Example__:
 
 ```
-echo "Today is $(date) and I am $(whoami)
+echo "Today is $(date) and I am $(whoami)"
 ```
 - echo gets 1 argument
 
