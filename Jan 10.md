@@ -146,11 +146,40 @@ __NOTE: `x = 1` will not work. Need to be no space__
 
 To recieve the value, $x (better: ${x})
 
+- __Global Variables__
 
+ `$PATH`: list of colon separated directories
+ 
+ Only directories in the PATH are searched to run a program
 
+---------------
 
+## Scripts
+- Text files contain linux commands
+- executed as a program
 
+1. basic
 
+ ```ruby
+ #!/bin/bash    -> shebang line(#-hash, !-bang) tells linux this is a bash program
+ pwd
+ whoami
+ date
+ ```
+ __NOTE: To run the program__
+  - add Basic into the PATH
+  - give absolute path
+  - use relative path: `./basic` ---> __ALWAYS RECOMMENDED__
+
+---------
+Complementary:
+
+check if a word is in the dictionary:
+
+```
+./isItAWord hello
+  $0         $1     $2     $3
+```
 
 
 
