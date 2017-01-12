@@ -1,4 +1,4 @@
-# Lec 4: Shell Scripts, C++(Hopefully) 
+# Lec 4: Shell Scripts, C++
 
 ## Last time
 - egrep
