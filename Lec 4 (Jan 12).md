@@ -131,7 +131,65 @@ A script has access to the first argument using `$1`, second argument using `$2`
 ---------------------------------
 
 ## Module 2 C++
-  Bjasne Stroustrup
+ 1. a bit history
+   - somenoe called Bjasne Stroustrup
+   - added OO concepts from Simula 67 to C: C with Classes
+   - C++99
+   - C++03
+   - C++11 => C++14 (now using) => c++17
+    
+ 2. C vs C++
+ 
+    __C__
+    ```ruby
+    #include <stdio.h>
+    int main() {
+      printf("Hello World\n");
+      return 0;
+    }
+    ```
+    
+    __C++__
+    ```ruby
+    #include <iostream>
+    using namespace std;
+    int main() {
+      cout << "Hello World";
+      cout << endl;
+      return 0;
+    }
+    ```
+    
+    - In C++, main must return int
+    - If main does not return, a `return 0` is assumed
+    - `stdio.h`, `printf` still available ==> __DONT USE IT__
+    - In C++, include iostream
+   
+     `std::cout << ..data.. << .....data;`
+     
+     `std::endl;` //newline
+     
+     With `using namespace std;` can omit `std::`
+ 
+ 3. Compiling
+  ```ruby
+  g++-5 -std=c++14 hello.cc -o hello
+  ./hello
+  ```
+  or
+  ```ruby
+  g++14 hello.cc ->output
+  ./a.out
+  ```
+    
+    
+    
+    
+    
+    
+    
+    
+    
   
 
   
