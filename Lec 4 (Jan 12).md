@@ -27,7 +27,7 @@ A script has access to the first argument using `$1`, second argument using `$2`
   3. The status code is stored in `$?`
   4. __Test Program__: `[ $? -eq 0 ]`    --> `-eq`: integer compare (`-eq`: equal ; `-ne`: not-equal) 
     
-- eg: A good password is not in the dictionary. Is the given password any good
+- eg: A good password is not in the dictionary. Is the given password good(not in the dictionary)?
   ```ruby
   #!/bin/bash
   egrep "^$1$" /usr/share/dict/words > /dev/null
@@ -76,8 +76,9 @@ A script has access to the first argument using `$1`, second argument using `$2`
      x = $((x+1))
    done
    ```
+   PS: `-le`: less than
   
- - condition tamplate:
+ - if-else Condition tamplate:
    ```ruby
      if [ condition ]; then
        _________
@@ -92,7 +93,7 @@ A script has access to the first argument using `$1`, second argument using `$2`
    ```
    [mv hello.c hello.cc]
    ```
-   equals
+   this equals
    ```ruby
    filename=hello.c
    mv ${filename} ${filename%c}cc 
