@@ -25,7 +25,7 @@ A script has access to the first argument using `$1`, second argument using `$2`
     - `0`: for success
     - non-zero: for failure
   3. The status code is stored in `$?`
-  4. __Test Program__: `[ $? -eq 0 ]`    --> `-eq`: integer compare
+  4. __Test Program__: `[ $? -eq 0 ]`    --> `-eq`: integer compare (`-eq`: equal ; `-ne`: not-equal) 
     
 - eg: A good password is not in the dictionary. Is the given password any good
   ```ruby
