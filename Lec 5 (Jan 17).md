@@ -29,3 +29,18 @@
   - `<<`: output operator
     
     ex: `cout << "Hello"`, `cerr<< "Bad!"`
+    
+  - `<<`: input operator
+  
+    ex: `cin >> xyz`
+    
+- Example: Add two numbers
+ ```ruby
+ #include <instream>
+ using namespace std;
+ int main() {
+  int x, y
+  cin >> x >> y;
+  cout << x + y << endl;
+```
+  
