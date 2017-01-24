@@ -40,9 +40,9 @@ z is a evalue reference to y
 
 - A reference is like a __constant pointer__ with automatic deferencing.
   
-         -----                          -----                         -----
+         -----                          -----                       -----
          | z |  --------------------->  | y | = (10) 12  <--------- | p |
-         -----  cannot change this      -----                         -----
+         -----  cannot change this      -----                       -----
          z = 12; // automatic deferencing
          *z = 12; [X]
          int *p = &z; // give the address of y
