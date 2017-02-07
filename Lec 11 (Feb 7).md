@@ -127,11 +127,50 @@ struct Node{
 ```
 __Note__: no memory leak as a tmp was stack allocated, it will be destroyed; taking one old value with it.    
     
-    
-    
-    
-    
-    
+## Rvalues & rvalue reference
+- Recap
+  
+  lvalue - something with an address
+  
+  lvalue reference - a const ptr with auto dereferencing; must be initialized with a lvalue
+  
+```c++
+Node plusOne(Node n) {
+  for(Node *p = &n; p; p = p->next) {     
+   ++p->data;
+  }
+  return n;
+}
+  
+Node n {1, new Node{2, nullptr}};
+Node n2 {plusOne(n)}; // rvalue, calls the copy ctor
+```
+  
+- Compiler creates a temporary for the returned value from plusOne
+
+- the program
+  ```
+  main, n  -> 2 basic ctors
+  In plusOne
+    n {1,2} -> {2,3}  2 copy ctors
+    temp {2,3} 2 copy ctors
+  out of PlusOne
+     Node n2 = tmp; 2 copy ctors
+   
+  We are creating a tmp to copy from and then to destroy tmp;
+  ```
+  What we want: should only steal if the rhs is a temporary(rvalue)
+  
+  - can implement a move ctor
+   ```c++
+   struct Node {
+     Node(Node &&other) // rvalue reference
+       data{other.data};
+       next{other,next};{
+       other.next = nullptr;
+       }
+   }
+   ```
     
     
     
