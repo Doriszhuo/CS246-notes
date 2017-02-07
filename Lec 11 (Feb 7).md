@@ -36,7 +36,7 @@
       ~Node() {   ->Tilde followed by classname
         delete next;  ->recursive call
       }
-  }
+  };
   ```
 
 
@@ -49,7 +49,7 @@ Student jane;
 jany = bobby; // copy assignment operator
 ```
 
-While we get a copy assignment operator for free, it might not be useful.
+- While we get a copy assignment operator for free, it might not be useful.
 
 ```c++
 struct Node {
@@ -61,8 +61,51 @@ struct Node {
       next = other.next? new Node(*other.next):nullptr; // call copy ctor recursively
       return *this;
     }
-}
+};
 ```
+
+- This might have problems
+ ```c++
+ Node n {1, new Node{2,nullptr}};
+ n = n; // operator=
+ ```
+ causes undefined behaviour: accessing/dereferencing a ptr that was deleted
+ 
+ --> add a self reference check
+ 
+```c++
+struct Node {
+    ...
+    ...
+    Node &operator=(const Node &other) {
+      if (this == &other) return *this;
+      data = others. data;
+      delete next;
+      next = other.next? new Node(*other.next):nullptr; // call copy ctor recursively
+      return *this;
+    }
+};
+```
+
+- If new fials, method stops executing, next is not assigned --> next is dangling
+  
+  Idea: delay deleting until new has succeed
+  
+```c++
+struct Node {
+    ...
+    ...
+    Node &operator=(const Node &other) {
+      if (this == &other) return *this;
+      Node *temp = next;
+      next = other.next? new Node(*other.next):nullptr; // call copy ctor recursively
+      data = others. data;
+      delete temp;
+      return *this;
+    } 
+};
+```
+__ALL OR NOTHING__ 
     
     
     
