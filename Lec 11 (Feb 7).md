@@ -96,7 +96,7 @@ struct Node {
     ...
     ...
     Node &operator=(const Node &other) {
-      if (this == &other) return *this;
+      if (this == &other) return *this; // not necessary but efficient
       Node *temp = next;
       next = other.next? new Node(*other.next):nullptr; // call copy ctor recursively
       data = others. data;
@@ -107,8 +107,25 @@ struct Node {
 ```
 __ALL OR NOTHING__ 
     
-    
-    
+## Copy & Swap Idiom
+```c++
+#include <utility>
+struct Node{
+  void swap(Node &other) {
+    using std::swap;
+    swap(data, other.data);
+    swap(next, other.next)'
+  }
+  
+  Node &operator(const Node &other){
+    Node tmp{other}; // copy ctor, temp is stack allocated
+    swap(tmp);
+    return *this;
+  }
+
+};
+```
+__Note__: no memory leak as a tmp was stack allocated, it will be destroyed; taking one old value with it.    
     
     
     
