@@ -149,7 +149,7 @@ int main() {
 ```
 __Advice:__ make fields private and make selected method public.
 
-__Keyword:__ class => __default visibility everywhere__
+__Keyword:__ class => __default invisibility everywhere__
 
 ```c++
 class Vec {
