@@ -36,7 +36,7 @@ __Passed by Reference__
 int y = 10;
 int &z = y;
 ```
-z is a evalue reference to y
+z is a lvalue reference to y
 
 - A reference is like a __constant pointer__ with automatic deferencing.
   
