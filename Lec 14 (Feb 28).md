@@ -1,4 +1,4 @@
-```
+```c++
 // list.h
 
 class List {
@@ -44,11 +44,11 @@ List::~List() {
 
 Traversal is O(n^2)
 
-###Design Patterns###
+## Design Patterns
 
 If you have "this kind of" problem, then "this programing technique" solves it
 
-**Iterator Pattern**
+### Iterator Pattern
 
 - Still not going to expose Nodes
 
@@ -56,7 +56,7 @@ If you have "this kind of" problem, then "this programing technique" solves it
 
 Inspiration: array traversed using patterns
 
-```
+```c++
 // arr is an array
 
 for ( int *p = arr; p != arr+n; ++p){        
@@ -69,14 +69,14 @@ arr+n: one past the end
 ++p:prefix operator
 ```
 
-**Todo List for List Iterator**
+#### Todo List for List Iterator
 
 - operator ++ (prefix operator)
 - operator * (dereference)
 - !=, ==
 - a way to indicate the begin and end
 
-```
+```c++
 Class List{
    struct Node;
    Node *theList;
@@ -106,7 +106,7 @@ Class List{
  };
 ```
 
-```
+```c++
   int main() {
       List lst;
       lst addToFront(1);
@@ -120,7 +120,7 @@ Class List{
           O(n) traversal
 ```
 
-***Automatic Type Inference (auto keyword)***
+### Automatic Type Inference (auto keyword)
 
 auto x = y; // x is defined to be the same type as y
 
@@ -129,10 +129,11 @@ for (auto it.lst.begin(); ......)
 }
 ```
 
-__C++11 supports range-based for loops__
+__Note: C++11 supports range-based for loops__
 
-```
 
+
+```c++
 for(auto n : lst){
     cout << n << endl;　         n will contain copies of int data in each iterration
 }
@@ -154,13 +155,13 @@ Problem: constructor of iterator class is public, which means client code might 
       
 We want to force client code to use begin and end (not create their own)
 
-Idea: make Iterator constructor private
+__Idea: make Iterator constructor private__
 
-__But then no one (not even List class) can construct Iterator objects__
+But then no one (not even List class) can construct Iterator objects
 
 __Iterator can make the list class a friend__
 
-```
+```c++
   class List{
       ...
       ...
@@ -181,7 +182,7 @@ Making a class a "friend" gives the class full access to everything that was pri
 
 Keep fields private, provide accessors or mutators as needed
 
-```
+```c++
 class Vec {
      int x, y;
      public:
@@ -193,14 +194,14 @@ class Vec {
 ```
 
 Suppose I have the vec class 
-          - private fields
-          - No getX and get y
+  - private fields
+  - No getX and get y
 But I want to implement operator<< for Vec
 
 Recall operator<< is implemented as a function
-      - how do I gain access to value of x and y
+  - how do I gain access to value of x and y
       
-```
+```c++
 Class Vec{
      int x, y;
      public:
@@ -208,11 +209,11 @@ Class Vec{
      operator << has access to x and y
 ```
 
-**System Modelling**
+## System Modelling
 
 - Better to design in advance how classes interact with each others
 
-UML: Unified Modelling Language
+__UML: Unified Modelling Language__
 
  Modelling a class in UML  
  
@@ -248,3 +249,5 @@ int main(){
         Basis()　: vec{1,0}, v2{0,1}{}
      };
      Basis b; (now will compile)
+```
+
